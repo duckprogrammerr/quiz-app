@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:quiz_app/controllers/user_controller.dart';
 import 'package:quiz_app/ui/widgets/custom_button.dart';
 import 'package:quiz_app/utils/app_style.dart';
 
 class AddNameScreen extends StatelessWidget {
-  const AddNameScreen({Key? key}) : super(key: key);
+  AddNameScreen({Key? key}) : super(key: key);
+  TextEditingController name = TextEditingController();
+  final UserController userController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +31,8 @@ class AddNameScreen extends StatelessWidget {
             const SizedBox(
               height: AppStyle.padddin,
             ),
-            TextFormField(
+            TextField(
+              controller: name,
               style: AppStyle.bodyTextStyle,
               textAlignVertical: TextAlignVertical.center,
               cursorHeight: 25,
@@ -50,7 +55,9 @@ class AddNameScreen extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            CustomButton(onPressed: () {}, text: 'تحقق'),
+            CustomButton(
+                onPressed: () => userController.addNameToUser(name.text),
+                text: 'تحقق'),
             const Spacer(),
           ],
         ),

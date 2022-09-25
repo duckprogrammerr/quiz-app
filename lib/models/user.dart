@@ -1,9 +1,9 @@
 class User {
-  final String token;
+  final String? token;
   final String? username;
   final String? mobile;
   User({
-    required this.token,
+    this.token,
     this.username,
     this.mobile,
   });

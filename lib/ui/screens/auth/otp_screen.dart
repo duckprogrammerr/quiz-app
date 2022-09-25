@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:quiz_app/ui/screens/auth/add_name_screen.dart';
+import 'package:quiz_app/controllers/user_controller.dart';
 import 'package:quiz_app/ui/widgets/custom_button.dart';
 import 'package:quiz_app/ui/widgets/otp_form.dart';
 import 'package:quiz_app/utils/app_style.dart';
@@ -14,6 +14,7 @@ class OtpScreen extends StatefulWidget {
 }
 
 class _OtpScreenState extends State<OtpScreen> {
+  UserController userController = Get.put(UserController());
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class _OtpScreenState extends State<OtpScreen> {
               CustomButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      Get.off(const AddNameScreen());
+                      userController.login(Get.arguments);
                     } else {
                       Get.showSnackbar(
                           AppStyle().erorrMsgSnackBar('احد الحقول فارغ'));

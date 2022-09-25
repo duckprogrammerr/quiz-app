@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/controllers/mobile_controller.dart';
 import 'package:quiz_app/ui/widgets/countries_dropdown.dart';
@@ -32,7 +31,7 @@ class LoginTextFieldWidget extends StatelessWidget {
               CountriesDropdown(mobileController: mobileController),
               Flexible(
                 flex: 3,
-                child: TextFormField(
+                child: TextField(
                   controller: mobileController.phoneNumberController,
                   style: AppStyle.bodyTextStyle,
                   textDirection: TextDirection.ltr,

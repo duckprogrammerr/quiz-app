@@ -35,7 +35,7 @@ class MobileController extends GetxController {
           regionCode: selectedCountry.value.code);
 
       if (isNumberVaild) {
-        Get.off(const OtpScreen());
+        Get.off(const OtpScreen(), arguments: phoneNumberController.text);
       } else {
         phoneNumberController.text = '';
 

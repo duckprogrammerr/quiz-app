@@ -25,22 +25,24 @@ class QuizApi {
     };
 
     var res = await _clinet.post(ApiConstants.loginUrl, body: body);
+
     if (res.statusCode == 201) {
-      return json.decode(res.body).map((e) => User.fromJson(e));
+      User user = User.fromJson(json.decode(res.body));
+      print(user.username);
+      return user;
     } else {
       throw 'Error ${res.statusCode}';
     }
   }
 
-  Future addNewUserName(String token, String name) async {
+  Future<bool> addNewUserName(String token, String name) async {
     var headers = {'Authorization': 'Bearer $token'};
     var body = {'name': name};
 
     var res = await _clinet.post(ApiConstants.addNameUrl,
         headers: headers, body: body);
     if (res.statusCode == 201) {
-      Map<String, dynamic> user = json.decode(res.body);
-      return user;
+      return true;
     } else {
       throw 'Erorr ${res.statusCode}';
     }
