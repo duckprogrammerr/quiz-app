@@ -13,6 +13,17 @@ class LaunchScreen extends StatefulWidget {
 class _LaunchScreenState extends State<LaunchScreen> {
   UserController userController = Get.put(UserController());
   @override
+  void initState() {
+    Future.delayed(
+      const Duration(seconds: 2),
+    ).then(
+      (value) => userController.tokenVerifocation(),
+    );
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(child: SvgPicture.asset('assets/images/logo.svg')));

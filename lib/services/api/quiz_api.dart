@@ -25,7 +25,7 @@ class QuizApi {
     };
 
     var res = await _clinet.post(ApiConstants.loginUrl, body: body);
-
+    print('status Code : ${res.statusCode}');
     if (res.statusCode == 201) {
       User user = User.fromJson(json.decode(res.body));
       print(user.username);
@@ -74,8 +74,9 @@ class QuizApi {
   }
 
   // Top 10 Scores
-  Future<List<Player>> fetchTopScores() async {
-    var res = await _clinet.get(ApiConstants.topScoresUrl);
+  Future<List<Player>> fetchTopScores(String token) async {
+    var headers = {'Authorization': 'Bearer $token'};
+    var res = await _clinet.get(ApiConstants.topScoresUrl, headers: headers);
     if (res.statusCode == 200) {
       return topScoresFromJson(res.body);
     } else {

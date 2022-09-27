@@ -7,16 +7,13 @@ import 'package:quiz_app/utils/app_style.dart';
 
 class AddNameScreen extends StatelessWidget {
   AddNameScreen({Key? key}) : super(key: key);
-  TextEditingController name = TextEditingController();
+  final TextEditingController name = TextEditingController();
   final UserController userController = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(AppStyle.padddin),
         child: Column(
