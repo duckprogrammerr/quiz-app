@@ -13,7 +13,7 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
-  QuizController quizController = Get.find();
+  final QuizController quizController = Get.put(QuizController());
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     const Spacer(),
 
                     Obx(() => Text(
-                          quizController.timer.value,
+                          quizController.timerText.value,
                           style: AppStyle.titleTextStyle.copyWith(fontSize: 30),
                         )),
                     const Spacer(),

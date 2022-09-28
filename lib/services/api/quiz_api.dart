@@ -25,10 +25,10 @@ class QuizApi {
     };
 
     var res = await _clinet.post(ApiConstants.loginUrl, body: body);
-    print('status Code : ${res.statusCode}');
+
     if (res.statusCode == 201) {
       User user = User.fromJson(json.decode(res.body));
-      print(user.username);
+
       return user;
     } else {
       throw 'Error ${res.statusCode}';
@@ -52,7 +52,7 @@ class QuizApi {
     var headers = {'Authorization': 'Bearer $token'};
 
     var res = await _clinet.get(ApiConstants.userInfoUrl, headers: headers);
-    print(res.statusCode);
+
     if (res.statusCode == 200) {
       User user = User.fromJson(json.decode(res.body));
       return user;
@@ -63,7 +63,7 @@ class QuizApi {
 
   Future<void> updateUserScore(String token, String score) async {
     var headers = {'Authorization': 'Bearer $token'};
-    var body = {'name': score};
+    var body = {'score': score};
 
     var res = await _clinet.post(ApiConstants.updateUserScoreUrl,
         headers: headers, body: body);

@@ -15,7 +15,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
   @override
   void initState() {
     Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 1),
     ).then(
       (value) => userController.tokenVerifocation(),
     );

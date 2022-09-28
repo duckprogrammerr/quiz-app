@@ -3,13 +3,15 @@ import 'package:quiz_app/utils/app_style.dart';
 
 class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
-  final String text;
+  final String? text;
+  final Widget? child;
   final double? padding;
   const CustomButton({
     Key? key,
     required this.onPressed,
-    required this.text,
+    this.text,
     this.padding,
+    this.child,
   }) : super(key: key);
 
   @override
@@ -19,15 +21,17 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
+          elevation: 0.0,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           primary: AppStyle.primaryColor,
           minimumSize: const Size.fromHeight(55),
         ),
-        child: Text(
-          text,
-          style: AppStyle.titleTextStyle.copyWith(color: Colors.white),
-        ),
+        child: child ??
+            Text(
+              text!,
+              style: AppStyle.titleTextStyle.copyWith(color: Colors.white),
+            ),
       ),
     );
   }

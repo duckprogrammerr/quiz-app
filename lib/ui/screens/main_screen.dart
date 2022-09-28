@@ -18,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   NavigationController navigationController = Get.put(NavigationController());
   QuizController quizController = Get.put(QuizController());
   List<Widget> screens = [
-    const HomeScreen(),
+    HomeScreen(),
     LeaderboradScreen(),
     ProfileScreen(),
   ];
