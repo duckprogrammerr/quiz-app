@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:quiz_app/controllers/quiz_controller.dart';
+import 'package:quiz_app/ui/screens/quiz_screen.dart';
 import 'package:quiz_app/ui/widgets/custom_button.dart';
 import 'package:quiz_app/utils/app_style.dart';
 
@@ -24,7 +27,12 @@ class HomeScreen extends StatelessWidget {
               height: AppStyle.padddin,
             ),
             CustomButton(
-                padding: AppStyle.padddin * 2, onPressed: () {}, text: 'ابدا'),
+                padding: AppStyle.padddin * 2,
+                onPressed: () {
+                  Get.put(QuizController());
+                  Get.to(const QuizScreen());
+                },
+                text: 'ابدا'),
             const SizedBox(
               height: AppStyle.padddin,
             ),

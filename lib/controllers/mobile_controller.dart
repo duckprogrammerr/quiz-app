@@ -17,14 +17,14 @@ class MobileController extends GetxController {
     super.onInit();
   }
 
-  getDeviceRegion() async {
+  Future<void> getDeviceRegion() async {
     String deviceRegion = await plugin.carrierRegionCode();
 
     selectedCountry(Countries.countryList
         .firstWhere((element) => element.code == deviceRegion.toUpperCase()));
   }
 
-  updateSelectedCountry(String code) {
+  void updateSelectedCountry(String code) {
     selectedCountry(
         Countries.countryList.firstWhere((element) => element.code == code));
   }

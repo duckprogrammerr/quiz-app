@@ -23,6 +23,12 @@ class UserController extends GetxController {
     return Get.off(const LoginScreen());
   }
 
+  getUserInfo() async {
+    String token = LocalDatabase().token.val;
+    User data = await QuizApi().fetchUserInfo(token);
+    user.value = data;
+  }
+
   login(String mobile) async {
     User userData = await QuizApi().login(mobile);
 
@@ -43,5 +49,10 @@ class UserController extends GetxController {
       await QuizApi().addNewUserName(user.value.token!, name);
       Get.off(const MainScreen());
     }
+  }
+
+  logout() async {
+    LocalDatabase().token.val = '';
+    Get.off(const LoginScreen());
   }
 }

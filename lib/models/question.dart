@@ -6,19 +6,18 @@ List<Question> questionFromJson(String str) =>
 
 class Question {
   final String question;
-  final String a;
-  final String b;
-  final String c;
-  final String d;
+  final List<String> choices;
   final String correct;
 
-  Question(this.question, this.a, this.b, this.c, this.d, this.correct);
+  Question(this.question, this.choices, this.correct);
   factory Question.fromJson(Map<String, dynamic> json) => Question(
         json['Question'],
-        json['a'],
-        json['b'],
-        json['c'],
-        json['d'],
+        [
+          json['a'],
+          json['b'],
+          json['c'],
+          json['d'],
+        ],
         json['correct'],
       );
 }

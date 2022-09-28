@@ -4,6 +4,7 @@ import 'package:quiz_app/controllers/navigation_controller.dart';
 import 'package:quiz_app/controllers/quiz_controller.dart';
 import 'package:quiz_app/ui/screens/home_screen.dart';
 import 'package:quiz_app/ui/screens/leaderboard_screen.dart';
+import 'package:quiz_app/ui/screens/profile_screen.dart';
 import 'package:quiz_app/ui/widgets/custom_bottom_navigationbar.dart';
 
 class MainScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> screens = [
     const HomeScreen(),
     LeaderboradScreen(),
-    const HomeScreen(),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {

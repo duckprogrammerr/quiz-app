@@ -48,13 +48,13 @@ class QuizApi {
     }
   }
 
-  Future<Map> fetchUserInfo(String token) async {
+  Future<User> fetchUserInfo(String token) async {
     var headers = {'Authorization': 'Bearer $token'};
 
     var res = await _clinet.get(ApiConstants.userInfoUrl, headers: headers);
-
+    print(res.statusCode);
     if (res.statusCode == 200) {
-      Map<dynamic, dynamic> user = json.decode(res.body);
+      User user = User.fromJson(json.decode(res.body));
       return user;
     } else {
       throw 'Erorr ${res.statusCode}';
