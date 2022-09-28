@@ -15,7 +15,7 @@ class QuizController extends GetxController {
   PageController pageController = PageController();
   var timerText = '2:00'.obs;
   Timer? timer;
-  var duration = const Duration(seconds: 2).inSeconds;
+  var duration = const Duration(minutes: 2).inSeconds;
   var skipAbility = true.obs;
   var score = 0.obs;
   var questions = <Question>[].obs;
