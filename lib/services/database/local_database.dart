@@ -4,10 +4,10 @@ class LocalDatabase {
   static final box = GetStorage();
 
   final token = ''.val('token', defVal: '');
-  final userHestory = <Map<String, dynamic>>[].val('userHestory');
+  ReadWriteValue<List<dynamic>> userHestory =
+      ReadWriteValue<List<dynamic>>('userHestory', []);
 
   deleteUserInfo() {
-    // box.write('key', Map<String,);
     box.erase();
   }
 }

@@ -29,8 +29,10 @@ class UserController extends GetxController {
 
   getUserInfo() async {
     String token = localDatabase.token.val;
-    User data = await QuizApi().fetchUserInfo(token);
     userHestory.value = userHestoryFromJson(localDatabase.userHestory.val);
+    User data = await QuizApi().fetchUserInfo(token);
+    print(localDatabase.userHestory.val);
+
     print(userHestory);
     user(data);
   }

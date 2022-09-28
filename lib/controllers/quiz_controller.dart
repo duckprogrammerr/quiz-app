@@ -15,7 +15,7 @@ class QuizController extends GetxController {
   PageController pageController = PageController();
   var timerText = '2:00'.obs;
   Timer? timer;
-  var duration = const Duration(minutes: 2).inSeconds;
+  var duration = const Duration(seconds: 2).inSeconds;
   var skipAbility = true.obs;
   var score = 0.obs;
   var questions = <Question>[].obs;
@@ -82,7 +82,8 @@ class QuizController extends GetxController {
   updateScore() async {
     var quizEndDate =
         DateFormat('h:mm a dd/MM/yyyy').format(DateTime.now()).toString();
-    List<Map<String, dynamic>> data = LocalDatabase().userHestory.val;
+
+    List<dynamic> data = LocalDatabase().userHestory.val;
     data.add(
       Score(score.value, quizEndDate).toJson(),
     );
