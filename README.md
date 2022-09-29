@@ -1,6 +1,6 @@
 # Quiz App
 
-Quiz app is an app to test your knowledge and solution for Okoul Challenge
+Quiz app is an app to test your knowledge and solution for Okoul Challenge's
 
 ## Table Of Content
   - [Screenshots](#screenshots)
