@@ -19,12 +19,19 @@ Quiz app is an app to test your knowledge and solution for Okoul Challenge
    
 ## Libraries used
    - [GetX](https://pub.dev/packages/get)
+   
      > GetX used for state management and route management.
+   
    - [http](https://pub.dev/packages/http)
+   
      >  for dealing with Okoul Api
+   
    - [get_storage](https://pub.dev/packages/get_storage)
+     
      > get storage is a Local database for saving user data in device
+   
    - [phone_number](https://pub.dev/packages/phone_number)
+     
      > Phone Number is a Flutter plugin that allows you to parse, validate, format and other utilities for to international phone numbers
 
 ## Contact me
